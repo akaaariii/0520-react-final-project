@@ -28,6 +28,3 @@ export const ReloadButton = styled.button`
 export const Icon = styled(ReplayIcon)`
   color: white;
 `;
-export const Name = styled.div`
-  
-`
