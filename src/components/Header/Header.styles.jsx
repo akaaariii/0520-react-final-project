@@ -23,6 +23,7 @@ export const ReloadText = styled.span`
 export const ReloadButton = styled.button`
   background-color: transparent;
   border: none;
+  outline: none;
   cursor: pointer;
 `;
 export const Icon = styled(ReplayIcon)`
