@@ -1,29 +1,28 @@
 import React, { useState } from 'react';
-// import { connect } from 'react-redux';
+import TableCell from '@material-ui/core/TableCell';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import AddIcon from '@material-ui/icons/Add';
 
-import List from '../List/List';
 
-const ListTable = () => {
+const AddForm = () => {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
 
   return (
     <>
-      <List />
-      
+      <TableCell onClick={handleClickOpen}><AddIcon color="primary" /></TableCell>
+
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Add new Issue</DialogTitle>
         <DialogContent>
@@ -84,7 +83,7 @@ const ListTable = () => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>
+          <Button onClick=''>
             Save
           </Button>
           <Button onClick={handleClose}>
@@ -96,4 +95,4 @@ const ListTable = () => {
   )
 }
 
-export default ListTable;
+export default AddForm;
