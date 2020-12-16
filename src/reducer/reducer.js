@@ -1,7 +1,5 @@
-import { ADD_ISSUE, EDIT_ISSUE, DELETE_ISSUE } from '../actions/actions';
-
 const initialState = {
-  issues: [
+  issuesList: [
     {
       id: 1,
       title: 'fix(router): ensure named outlets with empty path parents are matched',
@@ -22,34 +20,32 @@ const initialState = {
 };
 
 
-
 const reducer = (state = initialState, action) => {
-  switch(action.payload) {
-    case ADD_ISSUE:
-      openAddIssue();
-      {const newIssueObj = {
-        id: id,
+  console.log('action: ', action.type)
+  switch(action.type) {
+    case 'ADD_ISSUE':
+      {const newList = {
         content: action.payload,
       }
       return {
         ...state,
-        issues: [...state.issues, newIssueObj]
+        issuesList: [...state.issuesList, newList]
       }};
-    case EDIT_ISSUE:
-      {const newIssueObj = state.issues.filter(
+    case 'EDIT_ISSUE':
+      {const newList = state.issuesList.filter(
         (item) => item.id !== action.payload
       );
       return {
         ...state,
-        issues: newIssueObj
+        issuesList: newList
       }};
-    case DELETE_ISSUE:
-      {const newIssueObj = state.issues.filter(
+    case 'DELETE_ISSUE':
+      {const newList = state.issuesList.filter(
         (item) => item.id !== action.payload
       );
       return {
         ...state,
-        issues: newIssueObj
+        issuesList: newList
       }};
     default:
       return state;

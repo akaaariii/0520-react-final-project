@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import TableSortLabel from '@material-ui/core/TableSortLabel';
-import AddIcon from '@material-ui/icons/Add';
 import CreateIcon from '@material-ui/icons/Create';
 import DeleteIcon from '@material-ui/icons/Delete';
+
+import IssueListHeader from '../IssueListHeader';
+
 
 const rows = [
   {
@@ -54,45 +54,6 @@ function stableSort(array, comparator) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-const headCells = [
-  {id: 'id', label: 'Id'},
-  {id: 'title', label: 'Title'},
-  {id: 'state', label: 'State'},
-  {id: 'url', label: 'Url'},
-  {id: 'createdAt', label: 'Created at'},
-  {id: 'updatedAt', label: 'Updated at'}
-]
-
-function EnhancedTableHead(props) {
-  const { order, orderBy, onRequestSort } = props;
-  const createSortHandler = (property) => (event) => {
-    console.log(property, event)
-    onRequestSort(event, property);
-  };
-
-  return (
-    <TableHead>
-      <TableRow>
-        {headCells.map((headCell) => (
-          <TableCell
-            key={headCell.id}
-            sortDirection={orderBy === headCell.id ? order : false}
-          >
-            <TableSortLabel
-              active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : 'asc'}
-              onClick={createSortHandler(headCell.id)}
-            >
-              {headCell.label}
-            </TableSortLabel>
-          </TableCell>
-        ))}
-        <TableCell><AddIcon color="primary" /></TableCell>
-      </TableRow>
-    </TableHead>
-  );
-}
-
 
 export default function List() {
   const [order, setOrder] = useState('asc');
@@ -106,7 +67,7 @@ export default function List() {
 
   return (
     <Table size="small">  
-      <EnhancedTableHead
+      <IssueListHeader
         order={order}
         orderBy={orderBy}
         onRequestSort={handleRequestSort}
