@@ -7,10 +7,10 @@ import DeleteIcon from '@material-ui/icons/Delete';
 const List = ({ issue, onEditClick, onDeleteClick }) => {
 
   const handleEditOpen = () => {
-    onEditClick({ issue })
+    onEditClick(issue)
   }
   const handleDeleteOpen = () => {
-    onDeleteClick({ issue })
+    onDeleteClick(issue)
   }
 
   return (

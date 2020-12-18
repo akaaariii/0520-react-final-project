@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Table, TableBody, TableCell, TableHead, TableRow, TableSortLabel, TextField } from '@material-ui/core';
@@ -93,7 +93,7 @@ const IssuesList = ({ listArray, newIssue, editIssue, deleteIssue }) => {
     setAddAndEditIssue(editedIssue);
   };
   
-  const onEditClick = ({ issue }) => {
+  const onEditClick = (issue) => {
     setOpenEdit(true);
     setAddAndEditIssue({
       id: issue.id,
@@ -112,7 +112,7 @@ const IssuesList = ({ listArray, newIssue, editIssue, deleteIssue }) => {
     setOpenEdit(false);
   };
 
-  const onDeleteClick = ({ issue }) => {
+  const onDeleteClick = (issue) => {
     setOpenDelete(true);
     setAddAndEditIssue({
       id: issue.id,
@@ -128,6 +128,12 @@ const IssuesList = ({ listArray, newIssue, editIssue, deleteIssue }) => {
     deleteIssue(addAndEditIssue.id);
     setOpenDelete(false);
   };
+
+  useEffect(() => {
+    if(listArray != null){
+      setFilterValue(listArray)
+    }
+  }, [listArray]);
 
   return (
     <>
@@ -166,7 +172,7 @@ const IssuesList = ({ listArray, newIssue, editIssue, deleteIssue }) => {
                 <List key={issue.id} issue={issue} onEditClick={onEditClick} onDeleteClick={onDeleteClick} />
               ))
           ) : (
-            <p>Your Issue List is Empty</p>
+            <p>No Results</p>
           )}
         </TableBody>
       </Table>

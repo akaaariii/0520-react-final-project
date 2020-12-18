@@ -19,7 +19,7 @@ const AddForm = ({issue, handleChange}) => {
         name="id"
         id="id"
         label="Id"
-        type="number"
+        type="text"
         fullWidth
         helperText={issue.id === "" ? "Required field" : ""}
         onChange={handleInputChange}
