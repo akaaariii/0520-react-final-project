@@ -39,9 +39,11 @@ const reducer = (state = initialState, action) => {
         issuesList: [...state.issuesList, newList]
       }};
     case 'EDIT_ISSUE':
-      {const newList = state.issuesList.filter(
-        (item) => item.id !== action.payload
-      );
+      {const newList = state.issuesList.map((item) => {
+        if(item.id === action.payload.id)
+          return action.payload;
+        return item;
+      });
       return {
         ...state,
         issuesList: newList

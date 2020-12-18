@@ -23,7 +23,7 @@ const AddForm = () => {
     <>
       <TableCell onClick={handleClickOpen}><AddIcon color="primary" /></TableCell>
 
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" maxWidth="xs">
         <DialogTitle id="form-dialog-title">Add new Issue</DialogTitle>
         <DialogContent>
           <TextField

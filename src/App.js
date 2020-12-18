@@ -1,4 +1,5 @@
 import React from 'react';
+import { Paper } from '@material-ui/core';
 import { connect } from 'react-redux';
 
 import Header from './components/Header';
@@ -8,7 +9,9 @@ const App = () => {
   return (
     <>
       <Header />
-      <IssueList />
+      <Paper elevation={3}>
+        <IssueList />
+      </Paper>
     </>
   );
 }

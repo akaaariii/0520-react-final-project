@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
+import { TextField } from '@material-ui/core';
 
-import FilterList from './FilterList';
-import List from './List';
+import IssueListHeader from './IssueListHeader';
 import { newIssueAction, editIssueAction, deleteIssueAction } from '../actions/actions';
 
-const IssueList = ({ listArray, newIssue, editIssue, deleteIssue }) => {
 
-  // const [filterVal, setFilterVal] = useState({ fn: items => { return items; }});
+const IssueList = ({ listArray, newIssue, editIssue, deleteIssue }) => {
+  const [filterValue, setFilterValue] = useState(listArray);
   
   const addIssue = (content) => {
     newIssue(content);
@@ -17,34 +18,26 @@ const IssueList = ({ listArray, newIssue, editIssue, deleteIssue }) => {
   };
   const removeIssue = (id) => {
     deleteIssue(id);
-  }
+  };
 
-  // const handleSearch = e => {
-  //   console.log(e)
-  //   setFilterVal({
-  //     fn: items => {
-  //       if(e.target.value === ''){
-  //         return items;
-  //       } else {
-  //         return items.filter(item => item.title.toLowerCase().includes(e.target.value))
-  //       }
-  //     }
-  //   })
-  // }
-  
   const handleSearch = e => {
-    console.log(e.target.value)
     if(e.target.value === ''){
       return listArray;
     } else {
-      return listArray.filter(list => list.title.toLowerCase().includes(e.target.value))
+      let filteredArray = listArray.filter(item => item.title.toLowerCase().includes(e.target.value));
+      return setFilterValue(filteredArray);
     }
   }
 
+  
+
   return (
     <>
-      <FilterList filterFunc={handleSearch} />
-      <List listArray={listArray} addIssue={addIssue} changeIssue={changeIssue} removeIssue={removeIssue} />
+      <Form autoComplete="off">
+          <TextField id="standard-full-width" label="Filter issues" size="small" fullWidth margin="dense" color="secondary"
+                     onChange={handleSearch} />
+      </Form>
+      <IssueListHeader listArray={filterValue} />
     </>
   )
 };
@@ -70,3 +63,8 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(IssueList);
+
+
+const Form = styled.form`
+  padding: 5px 24px;
+`;
