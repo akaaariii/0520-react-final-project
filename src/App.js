@@ -1,20 +1,22 @@
 import React from 'react';
-import './App.css';
+import { connect } from 'react-redux';
 
-import Header from './components/Header/Header';
-import FilterList from './components/FilterList/FilterList';
-// import ListsTable from './components/ListsTable/ListsTable';
-import IssueList from './components/IssueList/IssueList';
+import Header from './components/Header';
+import IssueList from './components/IssueList';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <>
       <Header />
-      <FilterList />
-      {/* <ListsTable /> */}
       <IssueList />
-    </div>
+    </>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    issuesList: state.issuesList
+  };
+};
+
+export default connect(mapStateToProps)(App);

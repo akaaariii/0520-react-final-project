@@ -7,16 +7,16 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import AddForm from './AddForm';
 
 
-const IssueListHeader = ({ order, orderBy, onRequestSort }) => {
+const headCells = [
+  {id: 'id', label: 'Id'},
+  {id: 'title', label: 'Title'},
+  {id: 'state', label: 'State'},
+  {id: 'url', label: 'Url'},
+  {id: 'createdAt', label: 'Created at'},
+  {id: 'updatedAt', label: 'Updated at'}
+]
 
-  const headCells = [
-    {id: 'id', label: 'Id'},
-    {id: 'title', label: 'Title'},
-    {id: 'state', label: 'State'},
-    {id: 'url', label: 'Url'},
-    {id: 'createdAt', label: 'Created at'},
-    {id: 'updatedAt', label: 'Updated at'}
-  ];
+const IssueListHeader = ({ order, orderBy, onRequestSort }) => {
 
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
