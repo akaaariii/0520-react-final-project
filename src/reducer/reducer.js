@@ -31,31 +31,28 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch(action.type) {
     case 'ADD_ISSUE':
-      {const newList = {
-        content: action.payload,
-      }
       return {
         ...state,
-        issuesList: [...state.issuesList, newList]
-      }};
+        issuesList: [...state.issuesList, action.payload]
+      };
     case 'EDIT_ISSUE':
-      {const newList = state.issuesList.map((item) => {
+      const editList = state.issuesList.map((item) => {
         if(item.id === action.payload.id)
           return action.payload;
         return item;
       });
       return {
         ...state,
-        issuesList: newList
-      }};
+        issuesList: editList
+      };
     case 'DELETE_ISSUE':
-      {const newList = state.issuesList.filter(
+      const newList = state.issuesList.filter(
         (item) => item.id !== action.payload
       );
       return {
         ...state,
         issuesList: newList
-      }};
+      };
     default:
       return state;
   }

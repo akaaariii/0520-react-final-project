@@ -3,14 +3,14 @@ import { Paper } from '@material-ui/core';
 import { connect } from 'react-redux';
 
 import Header from './components/Header';
-import IssueList from './components/IssueList';
+import IssuesList from './components/IssuesList';
 
 const App = () => {
   return (
     <>
       <Header />
       <Paper elevation={3}>
-        <IssueList />
+        <IssuesList />
       </Paper>
     </>
   );
