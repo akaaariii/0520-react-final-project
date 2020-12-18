@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/0520-react-final-project/static/css/main.0cc800ea.chunk.css",
+    "main.js": "/0520-react-final-project/static/js/main.f33daaf4.chunk.js",
+    "main.js.map": "/0520-react-final-project/static/js/main.f33daaf4.chunk.js.map",
+    "runtime-main.js": "/0520-react-final-project/static/js/runtime-main.3bc28b9d.js",
+    "runtime-main.js.map": "/0520-react-final-project/static/js/runtime-main.3bc28b9d.js.map",
+    "static/js/2.3a098f04.chunk.js": "/0520-react-final-project/static/js/2.3a098f04.chunk.js",
+    "static/js/2.3a098f04.chunk.js.map": "/0520-react-final-project/static/js/2.3a098f04.chunk.js.map",
+    "index.html": "/0520-react-final-project/index.html",
+    "static/css/main.0cc800ea.chunk.css.map": "/0520-react-final-project/static/css/main.0cc800ea.chunk.css.map",
+    "static/js/2.3a098f04.chunk.js.LICENSE.txt": "/0520-react-final-project/static/js/2.3a098f04.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3bc28b9d.js",
+    "static/js/2.3a098f04.chunk.js",
+    "static/css/main.0cc800ea.chunk.css",
+    "static/js/main.f33daaf4.chunk.js"
+  ]
+}
