@@ -4,10 +4,10 @@ export const newIssueAction = content => {
     payload: content
   }
 };
-export const editIssueAction = id => {
+export const editIssueAction = content => {
   return {
     type: 'EDIT_ISSUE',
-    payload: id
+    payload: content
   }
 };
 export const deleteIssueAction = id => {
