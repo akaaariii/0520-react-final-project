@@ -50,14 +50,7 @@ const IssuesList = ({ listArray, newIssue, editIssue, deleteIssue }) => {
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
-  const [addAndEditIssue, setAddAndEditIssue] = useState({
-    id: '',
-    title: '',
-    state: '',
-    url: '',
-    createdAt: '',
-    updatedAt: ''
-  });
+  const [addAndEditIssue, setAddAndEditIssue] = useState('');
 
   const handleSearch = e => {
     if(e.target.value === ''){
@@ -99,6 +92,7 @@ const IssuesList = ({ listArray, newIssue, editIssue, deleteIssue }) => {
   const handleChange = (editedIssue) => {
     setAddAndEditIssue(editedIssue);
   };
+  
   const onEditClick = ({ issue }) => {
     setOpenEdit(true);
     setAddAndEditIssue({
@@ -131,7 +125,7 @@ const IssuesList = ({ listArray, newIssue, editIssue, deleteIssue }) => {
     setOpenDelete(false);
   }
   const saveRemoveIssue = () => {
-    deleteIssue(filterValue.id);
+    deleteIssue(addAndEditIssue.id);
     setOpenDelete(false);
   };
 
@@ -180,7 +174,7 @@ const IssuesList = ({ listArray, newIssue, editIssue, deleteIssue }) => {
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" maxWidth="xs">
         <DialogTitle id="form-dialog-title">Add new Issue</DialogTitle>
         <DialogContent>
-          <AddForm issue={addAndEditIssue} onChange={handleChange} />
+          <AddForm issue={addAndEditIssue} handleChange={handleChange} />
         </DialogContent>
         <DialogActions>
           <Button 
@@ -197,7 +191,7 @@ const IssuesList = ({ listArray, newIssue, editIssue, deleteIssue }) => {
       <Dialog open={openEdit} onClose={handleClose} aria-labelledby="form-dialog-title" maxWidth="xs">
         <DialogTitle id="form-dialog-title">Issue id: {addAndEditIssue.id}</DialogTitle>
         <DialogContent>
-          <AddForm issue={addAndEditIssue} onChange={handleChange} />
+          <AddForm issue={addAndEditIssue} handleChange={handleChange} />
         </DialogContent>
         <DialogActions>
           <Button

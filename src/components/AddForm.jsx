@@ -1,11 +1,11 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 
-const AddForm = ({issue, onChange}) => {
+const AddForm = ({issue, handleChange}) => {
 
   const handleInputChange = e => {
     const {name, value} = e.target;
-    onChange({ ...issue, [name]: value })
+    handleChange({ ...issue, [name]: value })
   }
   
   return (
@@ -16,6 +16,7 @@ const AddForm = ({issue, onChange}) => {
         error={issue.id === ""}
         color="secondary"
         margin="normal"
+        name="id"
         id="id"
         label="Id"
         type="number"
@@ -29,6 +30,7 @@ const AddForm = ({issue, onChange}) => {
         error={issue.title === ""}
         color="secondary"
         margin="normal"
+        name="title"
         id="title"
         label="Title"
         type="text"
@@ -42,6 +44,7 @@ const AddForm = ({issue, onChange}) => {
         error={issue.state === ""}
         color="secondary"
         margin="normal"
+        name="state"
         id="state"
         label="State"
         type="text"
@@ -53,6 +56,7 @@ const AddForm = ({issue, onChange}) => {
       <TextField
         color="secondary"
         margin="normal"
+        name="url"
         id="url"
         label="Url"
         type="text"
@@ -63,6 +67,7 @@ const AddForm = ({issue, onChange}) => {
       <TextField
         color="secondary"
         margin="normal"
+        name="createdAt"
         id="createdAt"
         label="Created at"
         type="text"
@@ -73,6 +78,7 @@ const AddForm = ({issue, onChange}) => {
       <TextField
         color="secondary"
         margin="normal"
+        name="updatedAt"
         id="updatedAt"
         label="Updated at"
         type="text"

@@ -37,8 +37,9 @@ const reducer = (state = initialState, action) => {
       };
     case 'EDIT_ISSUE':
       const editList = state.issuesList.map((item) => {
-        if(item.id === action.payload.id)
+        if(item.id === action.payload.id) {
           return action.payload;
+        }
         return item;
       });
       return {
