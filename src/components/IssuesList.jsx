@@ -158,9 +158,9 @@ const IssuesList = ({ listArray, newIssue, editIssue, deleteIssue }) => {
                 </TableSortLabel>
               </TableCell>
             ))}
-            <TableCell onClick={handleClickOpen}>
+            <TableCell>
               <IconButton color="primary">
-                <AddIcon color="primary" />
+                <AddIcon onClick={handleClickOpen} color="primary" />
               </IconButton>
             </TableCell>
           </TableRow>
